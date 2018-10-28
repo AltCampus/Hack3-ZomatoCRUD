@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,14 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="src/css/main.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+	 crossorigin="anonymous">
 </head>
+
 <body>
 	<header class="header">
 		<div class="header-wrapper">
-		<img class="logo" src="src/images/logo.svg" alt="Zomato logo">
+			<img class="logo" src="src/images/logo.svg" alt="Zomato logo">
 			<form class="search-form" id="search-form">
 				<span><i class="fas fa-search"></i></span>
 				<input class="search-value" id="search-value" type="text" name="search-value" placeholder="Search from restaurents">
@@ -23,12 +26,36 @@
 	</header>
 
 <section class="cards-container">
+				<input id="search-value" type="text" name="search-value" placeholder="Search from restaurents">
+				<button id="search-btn">Search</button>
+			</form>
+		</div>
+	</header>
 	<div class="list"></div>
 
 	<div class="favorite-list-container">
 		<div class="favourite-list"></div>
 	</div>
 </section>
+	<footer class="footer-wrapper">
+		<img class="logo-footer" src="src/images/logo.svg" alt="Zomato logo">
+		<form class="search-form-footer" id="search-form">
+			<input id="search-value-footer" type="text" name="search-value" placeholder="Search restaurant">
+			<a class="foot-span" href=""><i class="fas footer-icon fa-search"></i></a>
+		</form>
+		<div class="br"></div>
+		<div class="footer-details">
+			<h5>VPO - Rakkar Near Nistha NGO Sidhbari, Dharamsala Himachal Pradesh - 176057 India</h5>
+			<h6>Talk to Us : <a class="phone" href="">9731313280</a></h6>
+		</div>
+		<div class="footer-social container">
+			<i class="col-4 fab fa-facebook-f"></i>
+			<i class="col-4 fab fa-twitter-square"></i>
+			<i class="col-4 fab fa-instagram"></i>
+		</div>
+		<div class="footer-note"><h6>Made with <span><i class="fas fa-heart"></i></span>by Altcampus</h6></div>
+	</footer>
 	<script src="src/js/main.js"></script>
 </body>
+
 </html>

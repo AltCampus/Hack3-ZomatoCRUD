@@ -4,7 +4,7 @@ const list = document.querySelector('.list');
 const favoriteList = document.querySelector('.favourite-list');
 
 let restrurants = [];
-let favourites = [];
+let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
 
 const display = (array, parent) => {
   parent.innerHTML = '';
@@ -32,6 +32,31 @@ const display = (array, parent) => {
     <div class="row3">
       <button class="add-favourite fas fa-plus fa-2x"><g/button>
      </div>
+    <div class="restrurantCard">
+      <h1>Name - <span>${item.restaurant.name}</span></h1>
+      <a>Url <span>${item.restaurant.url}</span></a>
+      <h2>Address <span>${item.restaurant.location.address}</span></h2>
+      <h2>Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
+      <h2>Rating <span>${item.restaurant.user_rating.votes}</span></h2>
+      <h2>Average Cost of Two <span>${item.restaurant.average_cost_for_two}</span></h2>
+      <button class="add-favourite"  data-id=${i}>Add Favourite<g/button>
+    </div>
+    `
+  }).join('');
+}
+
+const displayFavourite = (array, parent) => {
+  parent.innerHTML = '';
+
+  array.length === 0 ? "" : array.map((item,i) => {
+    parent.innerHTML += 
+    `
+    <div class="favoruite-restrurantCard">
+      <h1>Name - <span>${item.restaurant.name}</span></h1>
+      <a>Url <span>${item.restaurant.url}</span></a>
+      <h2>Address <span>${item.restaurant.location.city}</span></h2>
+      <h2>Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
+      <button class="delete-favourite"  data-id=${i}>Delete Favourite<g/button>
     </div>
     `
   }).join('');
@@ -50,7 +75,7 @@ const searchRestrurants = e => {
 	}
   }).then(res => {console.log(res.status);return res.json()}).then(data => {
     restrurants = data.restaurants;
-    console.log(restrurants);
+    console.log(restrurants[0]);
     display(restrurants, list);
   })
 
@@ -60,11 +85,29 @@ const searchRestrurants = e => {
 const addToFavourite = e => {
   e.preventDefault();
   if(e.target.classList.contains('add-favourite')) {
-    const itemIndex = e.target.parentElement.id;
+    const itemIndex = e.target.dataset.id;
     favourites.push(restrurants[itemIndex]);
-    display(favourites, favoriteList);
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+
+    let favouritesArray = JSON.parse(localStorage.getItem('favourites'));
+    displayFavourite(favouritesArray, favoriteList);
   }
 }
 
+const deleteFavourite = e => {
+  e.preventDefault();
+  if(e.target.classList.contains('delete-favourite')) {
+    const itemIndex = e.target.dataset.id;
+    favourites.splice(itemIndex, 1);
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+
+    let favouritesArray = JSON.parse(localStorage.getItem('favourites'));
+    displayFavourite(favouritesArray, favoriteList);
+  }
+}
+ 
 searchForm.addEventListener("submit", searchRestrurants);
 list.addEventListener('click', addToFavourite);
+favoriteList.addEventListener('click', deleteFavourite);
+// favoriteList.addEventListener('dragstart', handleDrag)
+displayFavourite(favourites, favoriteList);
