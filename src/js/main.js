@@ -4,7 +4,7 @@ const list = document.querySelector('.list');
 const favoriteList = document.querySelector('.favourite-list');
 
 let restrurants = [];
-let favourites = [];
+let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
 
 const display = (array, parent) => {
   parent.innerHTML = '';
@@ -67,7 +67,10 @@ const addToFavourite = e => {
   if(e.target.classList.contains('add-favourite')) {
     const itemIndex = e.target.dataset.id;
     favourites.push(restrurants[itemIndex]);
-    displayFavourite(favourites, favoriteList);
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+
+    let favouritesArray = JSON.parse(localStorage.getItem('favourites'));
+    displayFavourite(favouritesArray, favoriteList);
   }
 }
 
@@ -76,10 +79,15 @@ const deleteFavourite = e => {
   if(e.target.classList.contains('delete-favourite')) {
     const itemIndex = e.target.dataset.id;
     favourites.splice(itemIndex, 1);
-    displayFavourite(favourites, favoriteList);
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+
+    let favouritesArray = JSON.parse(localStorage.getItem('favourites'));
+    displayFavourite(favouritesArray, favoriteList);
   }
 }
  
 searchForm.addEventListener("submit", searchRestrurants);
 list.addEventListener('click', addToFavourite);
 favoriteList.addEventListener('click', deleteFavourite);
+// favoriteList.addEventListener('dragstart', handleDrag)
+displayFavourite(favourites, favoriteList);
