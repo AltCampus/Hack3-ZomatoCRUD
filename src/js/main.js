@@ -43,7 +43,7 @@ const displayFavourite = (array, parent) => {
   array.length === 0 ? "" : array.map((item,i) => {
     parent.innerHTML += 
     `
-    <div class="favoruite-restrurantCard">
+    <div class="favoruite-restrurantCard" draggable="true">
     <h1 class="fav-head" Name - <span>${item.restaurant.name}</span></h1>
     <a class="link" href="${item.restaurant.url}"> website </a>
     <h2 class="fav-head2" Address <span>${item.restaurant.location.city}</span></h2>
@@ -102,5 +102,66 @@ const deleteFavourite = e => {
 searchForm.addEventListener("submit", searchRestrurants);
 list.addEventListener('click', addToFavourite);
 favoriteList.addEventListener('click', deleteFavourite);
-// favoriteList.addEventListener('dragstart', handleDrag)
-displayFavourite(favourites, favoriteList);
+
+if(favourites.length > 0) {
+  displayFavourite(favourites, favoriteList);
+  const favItems = document.querySelectorAll('.favoruite-restrurantCard');
+
+  function handleDragStart(e) {
+    this.classList.add('dragging');
+  
+    dragSrc = this;
+    console.log(dragSrc);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', dragSrc.innerHTML);
+  }
+  
+  function handleDragEnter(e) {
+    this.classList.add('dragover');
+  }
+  
+  function handleDragOver(e) {
+    if(e.preventDefault) {
+      e.preventDefault();
+    }
+  
+    e.dataTransfer.dropEffect = 'move';
+    return false;
+  }
+  
+  function handleDragLeave(e) {
+    this.classList.remove('dragging');
+  }
+  
+  function handleDrop(e) {
+    if(e.stopPropagation) {
+      e.stopPropagation();
+    }
+  
+    if(dragSrc != this) {
+      dragToPrevious = this.innerHTML;
+      console.log(`${this.outerHTML}`);
+      this.innerHTML = dragSrc.innerHTML;
+      dragSrc.innerHTML = dragToPrevious;
+      // this.innerHTML = e.dataTransfer.getData('text/html');
+    }
+  
+    return false;
+  }
+  
+  function handleDropEnd(e) {
+    dragSrc.classList.remove('dragover');
+    dragSrc.classList.remove('dragging');
+  }
+  
+  favItems.forEach(item => {
+    item.addEventListener('dragstart', handleDragStart, false);
+    item.addEventListener('dragenter', handleDragEnter, false);
+    item.addEventListener('dragover', handleDragOver, false);
+    item.addEventListener('dragleave', handleDragLeave, false);
+    item.addEventListener('drop', handleDrop, false);
+    item.addEventListener('dragend', handleDropEnd, false);
+  })
+
+  console.log(favItems)
+}
