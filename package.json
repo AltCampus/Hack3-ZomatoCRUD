@@ -4,7 +4,7 @@
   "description": "This projects uses [Zomato API]() where you can search for resturants.",
   "main": "index.js",
   "scripts": {
-    "start" : "parcel index.html", 
+    "start": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

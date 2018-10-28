@@ -110,3 +110,56 @@ table {
   .col-1 {
     flex: 0 0 calc(100% / 12 * 1);
   }
+  /*custom grid ends*/
+
+  /*custom css*/
+  root {
+  	font-size: 10px;
+  }
+  *,*:before,*:after{
+	box-sizing: border-box;
+}
+
+/*header classes*/
+  .header {
+  	width: 100vw;
+  	height: 20rem;
+  	background-image:linear-gradient(rgb(0,0,0,.5),rgb(0,0,0,.5)) ,url(../images/banner.jpg);
+  	background-size: cover; 
+  	border: 2px solid black;
+  	text-align: center;
+  	position: relative;
+  }
+  #search-btn{
+  	background: transparent;
+  	border:2px solid #888;
+  	font-size: 1rem;
+  	padding: .5rem;
+  	border-radius: .5rem;
+  	color: #fff;
+  }
+  #search-value {
+	  width: 25vw;
+		padding: .5rem;
+		border: none transparent;
+		background: #fff;
+		border-bottom: 2px solid #888;
+		outline: none;
+		margin-right: 1rem;
+	}
+	.search-form {
+		display: flex;
+		justify-content: center;
+	}
+	.logo {
+		height: 7rem;
+		width: 7rem;
+		margin-bottom: 1rem;
+		border-radius: 10px;
+	}
+	.header-wrapper {
+		position: absolute;
+		bottom: -15%;
+		left: 50%;
+	  transform: translate(-50%,-50%);
+	}
