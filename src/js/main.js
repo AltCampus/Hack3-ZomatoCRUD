@@ -13,33 +13,25 @@ const display = (array, parent) => {
     parent.innerHTML += 
     `
     <div class="restrurantCard" id=${i}>
-    <div class="row1">
-        <img src="https://source.unsplash.com/100x100/?restaurants" alt="restaurants">
-        <h1><a href="${item.restaurant.url}"><span>${item.restaurant.name}</span></a></h1>
-        <div class="ratings">
-        <div class="rate"><span>${item.restaurant.user_rating.votes}</span></div>
-         <span class="vote">${item.restaurant.user_rating.aggregate_rating} votes</span>
-        </div>
-    </div>
-    <div class="row2">
-     
-        <h3>Address :</h3>
-        <div><span>${item.restaurant.location.address}</span></div>
-         <h3>Cost for Two :</h3> 
-        <div><span>${item.restaurant.average_cost_for_two}</span></div>
-      
-    </div>
-    <div class="row3">
-      <button class="add-favourite fas fa-plus fa-2x"><g/button>
-     </div>
-    <div class="restrurantCard">
-      <h1>Name - <span>${item.restaurant.name}</span></h1>
-      <a>Url <span>${item.restaurant.url}</span></a>
-      <h2>Address <span>${item.restaurant.location.address}</span></h2>
-      <h2>Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
-      <h2>Rating <span>${item.restaurant.user_rating.votes}</span></h2>
-      <h2>Average Cost of Two <span>${item.restaurant.average_cost_for_two}</span></h2>
-      <button class="add-favourite"  data-id=${i}>Add Favourite<g/button>
+      <div class="row1">
+          <img src="https://source.unsplash.com/100x100/?restaurants" alt="restaurants">
+          <h1><a href="${item.restaurant.url}"><span>${item.restaurant.name}</span></a></h1>
+          <div class="ratings">
+          <div class="rate"><span>${item.restaurant.user_rating.votes}</span></div>
+           <span class="vote">${item.restaurant.user_rating.aggregate_rating} votes</span>
+          </div>
+      </div>
+      <div class="row2">
+       
+          <h3>Address :</h3>
+          <div><span>${item.restaurant.location.address}</span></div>
+           <h3>Cost for Two :</h3> 
+          <div><span>${item.restaurant.average_cost_for_two}</span></div>
+        
+      </div>
+      <div class="row3">
+        <button class="add-favourite fas fa-plus fa-2x" data-id=${i}></button>
+       </div>
     </div>
     `
   }).join('');
@@ -52,10 +44,10 @@ const displayFavourite = (array, parent) => {
     parent.innerHTML += 
     `
     <div class="favoruite-restrurantCard">
-      <h1>Name - <span>${item.restaurant.name}</span></h1>
-      <a>Url <span>${item.restaurant.url}</span></a>
-      <h2>Address <span>${item.restaurant.location.city}</span></h2>
-      <h2>Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
+      <h1 class="fav-head" Name - <span>${item.restaurant.name}</span></h1>
+      <a class="link" href="${item.restaurant.url}"> website </a>
+      <h2 class="fav-head2" Address <span>${item.restaurant.location.city}</span></h2>
+      <h2 class="fav-vote" Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
       <button class="delete-favourite"  data-id=${i}>Delete Favourite<g/button>
     </div>
     `
@@ -86,6 +78,7 @@ const addToFavourite = e => {
   e.preventDefault();
   if(e.target.classList.contains('add-favourite')) {
     const itemIndex = e.target.dataset.id;
+    console.log(itemIndex);
     favourites.push(restrurants[itemIndex]);
     localStorage.setItem("favourites", JSON.stringify(favourites));
 
