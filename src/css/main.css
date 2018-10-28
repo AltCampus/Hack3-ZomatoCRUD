@@ -268,13 +268,20 @@ color: #595958;
 
   
 /* favorite */
+/* favorite */
+.favourite-list {
+  width: 100%;
+  
+}
 .favoruite-restrurantCard {
   padding: 10px;
-  height: auto;
-  width: 250px;
+  /* height: auto; */
+  /* display: grid; */
+  width: 60%;
+  margin: 0 auto;
   text-align: center;
   border: 1px solid wheat;
-  background-color: rgb(184, 59, 59);
+  background-color: rgb(223, 98, 98);
 }
 .fav-head {
   font-weight: 700;
@@ -308,6 +315,7 @@ color: #595958;
   color: red;
   background: wheat;
 }
+
 
   /* footer */
   .footer-wrapper {
