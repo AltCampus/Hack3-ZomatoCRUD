@@ -126,17 +126,21 @@ table {
   	height: 20rem;
   	background-image:linear-gradient(rgb(0,0,0,.5),rgb(0,0,0,.5)) ,url(../images/banner.jpg);
   	background-size: cover; 
-  	border: 2px solid black;
   	text-align: center;
   	position: relative;
   }
   #search-btn{
   	background: transparent;
   	border:2px solid #888;
+  	color: #fff;
   	font-size: 1rem;
   	padding: .5rem;
   	border-radius: .5rem;
-  	color: #fff;
+  	
+  }
+  #search-btn:hover{
+    background-color: #1100FF;
+  	border:2px solid #1100FF;
   }
   #search-value {
 	  width: 25vw;
@@ -147,13 +151,19 @@ table {
 		outline: none;
 		margin-right: 1rem;
 	}
+	#search-value:hover{
+		border-bottom: 2px solid #1100FF;
+  	border:2px solid #1100FF;
+  }
 	.search-form {
 		display: flex;
 		justify-content: center;
 	}
+
 	.logo {
 		height: 7rem;
 		width: 7rem;
+		margin-left: -4rem;
 		margin-bottom: 1rem;
 		border-radius: 10px;
 	}
@@ -162,4 +172,14 @@ table {
 		bottom: -15%;
 		left: 50%;
 	  transform: translate(-50%,-50%);
+	}
+	.search-form span{
+		background-color: #fff;
+		width: 1.5rem;
+		padding: .5rem 0;
+		border: none transparent;
+		background: #fff;
+		border-bottom: 2px solid #888;
+		outline: none;
+		color: #888;
 	}
