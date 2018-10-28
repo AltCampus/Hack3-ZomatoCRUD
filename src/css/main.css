@@ -211,12 +211,13 @@ body {
 	width: 100%;
 	display: grid;
 	grid-template-rows: 10rem 8rem 2rem;
-	margin-top: 5rem;
+	margin-top: 3rem;
 	border-radius: 10px;
 	border:2px solid #888;
 	box-shadow: 10px 10px 28px -2px rgba(0,0,0,0.52);
 	padding: 1.5rem;
 }
+
 
 .row1{
 display: grid;
@@ -255,6 +256,10 @@ color: #595958;
 .add-favourite{
 	background: transparent;
 	color: #888;
+	margin-top: 5px;
+}
+.add-favourite:hover{
+	color: #1100FF; 
 }
 .rate{
 	font-size: 1rem;
