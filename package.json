@@ -1,0 +1,21 @@
+{
+  "name": "Hack3-ZomatoCRUD",
+  "version": "1.0.0",
+  "description": "This projects uses [Zomato API]() where you can search for resturants.",
+  "main": "index.js",
+  "scripts": {
+    "start" : "parcel index.html", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AltCampus/Hack3-ZomatoCRUD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AltCampus/Hack3-ZomatoCRUD/issues"
+  },
+  "homepage": "https://github.com/AltCampus/Hack3-ZomatoCRUD#readme"
+}
