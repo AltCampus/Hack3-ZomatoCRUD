@@ -32,10 +32,10 @@ const displayFavourite = (array, parent) => {
     parent.innerHTML += 
     `
     <div class="favoruite-restrurantCard">
-      <h1>Name - <span>${item.restaurant.name}</span></h1>
-      <a>Url <span>${item.restaurant.url}</span></a>
-      <h2>Address <span>${item.restaurant.location.city}</span></h2>
-      <h2>Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
+      <h1 class="fav-head" Name - <span>${item.restaurant.name}</span></h1>
+      <a class="link" href="${item.restaurant.url}"> website </a>
+      <h2 class="fav-head2" Address <span>${item.restaurant.location.city}</span></h2>
+      <h2 class="fav-vote" Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
       <button class="delete-favourite"  data-id=${i}>Delete Favourite<g/button>
     </div>
     `
