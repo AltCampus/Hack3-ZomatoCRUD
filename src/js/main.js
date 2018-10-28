@@ -3,14 +3,10 @@ const searchForm = document.getElementById('search-form');
 const list = document.querySelector('.list');
 
 let restrurants = [];
-
+let favourites = [];
 
 const display = (array, parent) => {
   parent.innerHTML = '';
-
-  restrurantCardStr = `
-    
-  `;
 
   array.map(item => {
     return parent.innerHTML += restrurantCardStr;
@@ -26,6 +22,7 @@ const display = (array, parent) => {
       <h2>Votes <span>${item.restaurant.user_rating.aggregate_rating}</span></h2>
       <h2>Rating <span>${item.restaurant.user_rating.votes}</span></h2>
       <h2>Average Cost of Two <span>${item.restaurant.average_cost_for_two}</span></h2>
+      <button class="add-favourite">Add Favourite</button>
     </div>
     `
   }).join('');
@@ -48,7 +45,15 @@ const searchRestrurants = e => {
     display(restrurants, list);
   })
 
-  console.log('form submitted')
+  console.log('form submitted');
+}
+
+const addToFavourite = e => {
+  e.preventDefault();
+  if(e.target.class('add-favourite')) {
+    e.target.
+  }
 }
 
 searchForm.addEventListener("submit", searchRestrurants);
+list.addEventListener('click', addToFavourite);
